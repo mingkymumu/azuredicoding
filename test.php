@@ -1,25 +1,19 @@
 <?php
-    // $serverName = "webappdicoding.database.windows.net"; // update me
-    // $connectionOptions = array(
-    //     "Database" => "pos", // update me
-    //     "Uid" => "mingkymumu", // update me
-    //     "PWD" => "mumu81858591_" // update me
-    // );
-    // //Establishes the connection
-    // $conn = sqlsrv_connect($serverName, $connectionOptions);
-    // $tsql= "SELECT * FROM dbo.products";
-    // $getResults= sqlsrv_query($conn, $tsql);
-    // echo ("Reading data from table" . PHP_EOL);
-    // if ($getResults == FALSE)
-    //     echo (sqlsrv_errors());
-    // while ($row = sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC)) {
-    //  echo ($row['title'] . " " . $row['description'] . PHP_EOL);
-    // }
-    // sqlsrv_free_stmt($getResults);
-    
+   $serverName = "tcp:webappdicoding.database.windows.net,1433";
+   $userName = 'mingkymumu@webappdicoding.database.windows.net';
+   $userPassword = 'mumu81858591_';
+   $dbName = "pos";
+   $table = "products";
 
-// Show all information, defaults to INFO_ALL
-phpinfo();
+   $connectionInfo = array("Database"=>$dbName, "UID"=>$userName, "PWD"=>$userPassword, "MultipleActiveResultSets"=>true);
+
+   sqlsrv_configure('WarningsReturnAsErrors', 0);
+   $conn = sqlsrv_connect( $serverName, $connectionInfo);
+   if($conn === false)
+   {
+     FatalError("Failed to connect...");
+   }
+// phpinfo();
 
 // Show just the module information.
 // phpinfo(8) yields identical results.
