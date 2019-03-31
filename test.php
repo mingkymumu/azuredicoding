@@ -17,3 +17,4 @@ if (!$db_selected)
 {
   die ('Can\'t use db : ' . mssql_get_last_message());
 } 
+?>
