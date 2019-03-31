@@ -1,20 +1,14 @@
 <?php
-$myServer = "webappdicoding.database.windows.net";
-$myUser = "mingkymumu";
-$myPass = "mumu81858591_";
-$myDB = "pos";
-
-$conn = mssql_connect($myServer,$myUser,$myPass);
-if (!$conn)
-{ 
-  die('Not connected : ' . mssql_get_last_message());
-} else
-{
-    echo "Konek cuy";
+$connectionInfo = array("UID" => "mingkymumu@webappdicoding", "pwd" => "{your_password_here}", "Database" => "pos", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:webappdicoding.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+if($conn){
+    echo "berhasil connect";
 }
-$db_selected = mssql_select_db($myDB, $conn);
-if (!$db_selected) 
+else
 {
-  die ('Can\'t use db : ' . mssql_get_last_message());
-} 
+    echo  "gagal cokkkk";
+}
+
+
 ?>
