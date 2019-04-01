@@ -17,7 +17,7 @@ $result = sqlsrv_query($conn, "SELECT * FROM products ORDER BY id DESC");
     <table width='80%' border=1>
 
     <tr>
-        <th>Title</th> <th>Description</th><th>Created at</th><th>Update</th> 
+        <th>Title</th> <th>Description</th> <th>Created at</th> <th>Update</th> 
     </tr>
     <?php  
     while($product_data = sqlsrv_fetch_array($result)) {         
