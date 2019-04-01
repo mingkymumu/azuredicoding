@@ -38,7 +38,7 @@
         // Insert user data into table
         if (!sqlsrv_query($conn, $tsql, $var))
                  {
-            die('Error: ' . sqlsrv_errors());
+            die('Error: ' .sqlsrv_errors());
                  }
             // echo "1 record added"; 
 
