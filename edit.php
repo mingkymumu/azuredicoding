@@ -45,11 +45,11 @@ while($product_data = sqlsrv_fetch_array($result))
         <table border="0">
             <tr> 
                 <td>Title</td>
-                <td><input type="text" name="title" value=<?php echo $title;?>></td>
+                <td><input type="text" name="title" value=<?php .$product_data['title']?>></td>
             </tr>
             <tr> 
                 <td>Description</td>
-                <td><input type="text" name="description" value=<?php echo $description;?>></td>
+                <td><input type="text" name="description" value=<?php .$product_data['description']?>></td>
             </tr>
           
             <tr>
