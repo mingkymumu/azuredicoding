@@ -12,7 +12,7 @@ $result = sqlsrv_query($conn, "SELECT * FROM products ORDER BY id DESC");
 </head>
 
 <body>
-<!-- <a href="add.php">Add New User</a><br/><br/> -->
+<a href="add.php">Add New Product</a><br/><br/>
 
     <table width='80%' border=1>
 
