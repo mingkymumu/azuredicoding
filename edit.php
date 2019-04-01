@@ -12,7 +12,7 @@ if(isset($_POST['update']))
   
 
     // update user data
-    $result = sqlsrv_query($conn, "UPDATE dbo.products SET title='$title',description='$description' WHERE id=$id");
+    $result = sqlsrv_query($conn, "UPDATE dbo.products SET title ='$title',description='$description' WHERE id=$id");
 
     // Redirect to homepage to display updated user in list
     header("Location: index.php");
@@ -45,7 +45,7 @@ while($product_data = sqlsrv_fetch_array($result))
         <table border="0">
             <tr> 
                 <td>Title</td>
-                <td><input type="text" name="name" value=<?php echo $title;?>></td>
+                <td><input type="text" name="title" value=<?php echo $title;?>></td>
             </tr>
             <tr> 
                 <td>Description</td>
