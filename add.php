@@ -28,12 +28,16 @@
 
     // Check If form submitted, insert form data into users table.
     if(isset($_POST['Submit'])) {
+        include_once("connection.php");
         $title = $_POST['title'];
         $description = $_POST['description'];
-
+        $tz = 'Asia/Jakarta';
+        $timestamp = time();
+        $dt = new DateTime("now", new DateTimeZone($tz)); //first argument "must" be a string
+        $dt->setTimestamp($timestamp); //adjust the object to correct timestamp
         // include database connection file
-        include_once("connection.php");
-        $var =  array($title,$description,date('Y/m/d'),date('Y/m/d'));
+      
+        $var =  array($title,$description,$dt,$dt);
         $tsql ="INSERT INTO dbo.products(title,description,created_at,updated_at) VALUES(?,?,?,?)";
         // Insert user data into table
         if (!sqlsrv_query($conn, $tsql, $var))
