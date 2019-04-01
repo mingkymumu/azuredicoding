@@ -33,8 +33,8 @@
 
         // include database connection file
         include_once("connection.php");
-        $var =  array($title,$description,date('Y/m/d'));
-        $tsql ="INSERT INTO dbo.products(title,description,created_at) VALUES(?,?,?)";
+        $var =  array($title,$description,date('Y/m/d'),date('Y/m/d'));
+        $tsql ="INSERT INTO dbo.products(title,description,created_at,updated_at) VALUES(?,?,?,?)";
         // Insert user data into table
         if (!sqlsrv_query($conn, $tsql, $var))
                {
