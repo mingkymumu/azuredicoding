@@ -36,7 +36,6 @@
         $var =  array($title,$description,date('yyyy-mm-dd'));
         $tsql ="INSERT INTO dbo.products(title,description,created_at) VALUES(?,?,?)";
         // Insert user data into table
-        $result = sqlsrv_query($conn, );
         if (!sqlsrv_query($conn, $tsql, $var))
                  {
             die('Error: ' . sqlsrv_errors());
