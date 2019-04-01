@@ -33,9 +33,16 @@
 
         // include database connection file
         include_once("connection.php");
-
+        $var =  array($title,$description,date('yyyy-mm-dd'));
+        $tsql ="INSERT INTO dbo.products(title,description,created_at) VALUES(?,?,?)";
         // Insert user data into table
-        $result = sqlsrv_query($conn, "INSERT INTO dbo.products(title,description,created_at) VALUES('$title','$description',date('yyyy-mm-dd'))");
+        $result = sqlsrv_query($conn, );
+        if (!sqlsrv_query($conn, $tsql, $var))
+                 {
+            die('Error: ' . sqlsrv_errors());
+                 }
+            // echo "1 record added"; 
+
 
         // Show message when user added
         echo "Product added successfully. <a href='index.php'>View Products</a>";
