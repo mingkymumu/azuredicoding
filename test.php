@@ -1,12 +1,12 @@
 <?php
-try {
-    $conn = new PDO("sqlsrv:server = tcp:webappdicoding.database.windows.net,1433; Database = pos", "mingkymumu", "mumu81858591_");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+$connectionInfo = array("UID" => "mingkymumu@webappdicoding", "pwd" => "{your_password_here}", "Database" => "pos", "LoginTimeout" => 30, "Encrypt" => 1, "TrustServerCertificate" => 0);
+$serverName = "tcp:webappdicoding.database.windows.net,1433";
+$conn = sqlsrv_connect($serverName, $connectionInfo);
+if(!$conn){
+    echo "gagal terkoneksi ke database !!";
 }
-catch (PDOException $e) {
-    print("Error connecting to SQL Server.");
-    die(print_r($e));
+else{
+    echo "koneksi sukses!";
 }
-
 // phpinfo();
 ?>
