@@ -75,8 +75,8 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'webappdicoding.database.windows.net,1433',
-	'username' => 'mingkymumu',
+	'hostname' => 'tcp:webappdicoding.database.windows.net,1433',
+	'username' => '"mingkymumu@webappdicoding',
 	'password' => 'mumu81858591_',
 	'database' => 'pos',
 	'dbdriver' => 'sqlsrv',
