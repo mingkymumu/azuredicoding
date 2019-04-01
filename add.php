@@ -28,8 +28,8 @@
 
     // Check If form submitted, insert form data into users table.
     if(isset($_POST['Submit'])) {
-        $name = $_POST['title'];
-        $descrription = $_POST['description'];
+        $title = $_POST['title'];
+        $description = $_POST['description'];
 
         // include database connection file
         include_once("connection.php");
