@@ -6,7 +6,7 @@ class ProductsModel extends CI_Model{
           $this->db->like('title', $this->input->get("search"));
           $this->db->or_like('description', $this->input->get("search")); 
         }
-        $query = $this->db->get("dbo.products");
+        $query = $this->db->get("products");
         return $query->result();
     }
     public function insert_product()
@@ -15,7 +15,7 @@ class ProductsModel extends CI_Model{
             'title' => $this->input->post('title'),
             'description' => $this->input->post('description')
         );
-        return $this->db->insert('dbo.products', $data);
+        return $this->db->insert('products', $data);
     }
     public function update_product($id) 
     {
@@ -24,10 +24,10 @@ class ProductsModel extends CI_Model{
             'description'=> $this->input->post('description')
         );
         if($id==0){
-            return $this->db->insert('dbo.products',$data);
+            return $this->db->insert('products',$data);
         }else{
             $this->db->where('id',$id);
-            return $this->db->update('dbo.products',$data);
+            return $this->db->update('products',$data);
         }        
     }
 }
