@@ -35,7 +35,7 @@
         include_once("connection.php");
 
         // Insert user data into table
-        $result = sqlsrv_query($conn, "INSERT INTO products(title,description) VALUES('$title','$description')");
+        $result = sqlsrv_query($conn, "INSERT INTO dbo.products(title,description) VALUES('$title','$description')");
 
         // Show message when user added
         echo "Product added successfully. <a href='index.php'>View Products</a>";
