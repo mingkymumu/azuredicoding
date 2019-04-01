@@ -34,12 +34,18 @@
         // include database connection file
         include_once("connection.php");
         $var =  array($title,$description,date('Y/m/d'));
-        $tsql ="INSERT INTO products(title,description,created_at) VALUES(?,?,?)";
+        $tsql ="INSERT INTO dbo.products(title,description,created_at) VALUES(?,?,?)";
         // Insert user data into table
         if (!sqlsrv_query($conn, $tsql, $var))
-                 {
-            die('Error: ' .sqlsrv_errors());
-                 }
+               {
+                if( ($errors = sqlsrv_errors() ) != null) {
+                    foreach( $errors as $error ) {
+                        echo "SQLSTATE: ".$error[ 'SQLSTATE']."<br />";
+                        echo "code: ".$error[ 'code']."<br />";
+                        echo "message: ".$error[ 'message']."<br />";
+                    }
+                }
+               }
             // echo "1 record added"; 
 
 
