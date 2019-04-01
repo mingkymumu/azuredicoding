@@ -24,7 +24,7 @@ $result = sqlsrv_query($conn, "SELECT * FROM products ORDER BY id DESC");
         echo "<tr>";
         echo "<td>".$product_data['title']."</td>";
         echo "<td>".$product_data['description']."</td>";
-        echo "<td>".$product_data['created_at']."</td>";
+        echo "<td>".$product_data['created_at']->format('Y-m-d')."</td>";
         echo "<td><a href='edit.php?id=$product_data[id]'>Edit</a> | <a href='delete.php?id=$product_data[id]'>Delete</a></td></tr>";        
 
           
