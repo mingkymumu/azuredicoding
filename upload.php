@@ -22,61 +22,65 @@ if(isset($_POST['Submit1']))
     $createContainerOptions->addMetaData("key2", "value2");
 	$containerName = "blockblobs".generateRandomString();
 
-	$fileToUpload =  $_FILES["file"]["name"];
-	 try {
-        // Create container.
-        $blobClient->createContainer($containerName, $createContainerOptions);
-
-        // Getting local file so that we can upload it to Azure
-        $myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
-        fclose($myfile);
-        
-        # Upload file as a block blob
-     //   echo "Uploading BlockBlob: ".PHP_EOL;
-     //   echo $fileToUpload;
-     //   echo "<br />";
-        
-        $content = fopen($fileToUpload, "r");
-
-        //Upload blob
-        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-
-        // List blobs.
-        $listBlobsOptions = new ListBlobsOptions();
-        $listBlobsOptions->setPrefix("HelloWorld");
-
-
-        do{
-            $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-            foreach ($result->getBlobs() as $blob)
-            {
-				echo "<img src=".$blob->getUrl()." height=200 width=300 />";
-            }
-        
-            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-        } while($result->getContinuationToken());
-
-        // Get blob.
-        $blob = $blobClient->getBlob($containerName, $fileToUpload);
-        fpassthru($blob->getContentStream());
-		
+    $filepath = "image/".$_FILES["file"]["name"];
+    if(if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)) ){
+        $fileToUpload = $filepath;
+        try {
+            // Create container.
+            $blobClient->createContainer($containerName, $createContainerOptions);
+    
+            // Getting local file so that we can upload it to Azure
+            $myfile = fopen($filepath, "w") or die("Unable to open file!");
+            fclose($myfile);
+            
+            # Upload file as a block blob
+         //   echo "Uploading BlockBlob: ".PHP_EOL;
+         //   echo $fileToUpload;
+         //   echo "<br />";
+            
+            $content = fopen($fileToUpload, "r");
+    
+            //Upload blob
+            $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+    
+            // List blobs.
+            $listBlobsOptions = new ListBlobsOptions();
+            $listBlobsOptions->setPrefix("HelloWorld");
+    
+    
+            do{
+                $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+                foreach ($result->getBlobs() as $blob)
+                {
+                    echo "<img src=".$blob->getUrl()." height=200 width=300 />";
+                }
+            
+                $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+            } while($result->getContinuationToken());
+    
+            // Get blob.
+            $blob = $blobClient->getBlob($containerName, $fileToUpload);
+            fpassthru($blob->getContentStream());
+            
+        }
+        catch(ServiceException $e){
+            // Handle exception based on error codes and messages.
+            // Error codes and messages are here:
+            // http://msdn.microsoft.com/library/azure/dd179439.aspx
+            $code = $e->getCode();
+            $error_message = $e->getMessage();
+            echo $code.": ".$error_message;
+        }
+        catch(InvalidArgumentTypeException $e){
+            // Handle exception based on error codes and messages.
+            // Error codes and messages are here:
+            // http://msdn.microsoft.com/library/azure/dd179439.aspx
+            $code = $e->getCode();
+            $error_message = $e->getMessage();
+            echo $code.": ".$error_message."<br />";
+        }
     }
-    catch(ServiceException $e){
-        // Handle exception based on error codes and messages.
-        // Error codes and messages are here:
-        // http://msdn.microsoft.com/library/azure/dd179439.aspx
-        $code = $e->getCode();
-        $error_message = $e->getMessage();
-        echo $code.": ".$error_message;
-    }
-    catch(InvalidArgumentTypeException $e){
-        // Handle exception based on error codes and messages.
-        // Error codes and messages are here:
-        // http://msdn.microsoft.com/library/azure/dd179439.aspx
-        $code = $e->getCode();
-        $error_message = $e->getMessage();
-        echo $code.": ".$error_message."<br />";
-    }
+	
 } 
 // else 
 // {
