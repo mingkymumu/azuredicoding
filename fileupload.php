@@ -58,7 +58,8 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
             foreach ($result->getBlobs() as $blob)
             {
-                echo $blob->getName().": ".$blob->getUrl()."<br />";
+                // echo $blob->getName().": ".$blob->getUrl()."<br />";
+                echo "<img src=".$blob->getUrl()." height=200 width=300 />";
             }
         
             $listBlobsOptions->setContinuationToken($result->getContinuationToken());
@@ -66,10 +67,10 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
         echo "<br />";
 
         // Get blob.
-        echo "This is the content of the blob uploaded: ";
-        $blob = $blobClient->getBlob($containerName, $fileToUpload);
-        fpassthru($blob->getContentStream());
-        echo "<br />";
+        // echo "This is the content of the blob uploaded: ";
+        // $blob = $blobClient->getBlob($containerName, $fileToUpload);
+        // fpassthru($blob->getContentStream());
+        // echo "<br />";
     }
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
