@@ -10,7 +10,7 @@
     function ngisiData(){
         $("#responseTextArea").val('Ini cuma sekedar tes');
     }
-    function processImage() {
+    function processImage(stringurl) {
       
         // **********************************************
         // *** Update or verify the following values. ***
@@ -38,8 +38,8 @@
         };
  
         // Display the image.
-        var sourceImageUrl = document.getElementById("inputImage").value;
-        document.querySelector("#sourceImage").src = sourceImageUrl;
+        // var sourceImageUrl = document.getElementById("inputImage").value;
+        // document.querySelector("#sourceImage").src = sourceImageUrl;
  
         // Make the REST API call.
         $.ajax({
@@ -55,8 +55,8 @@
             type: "POST",
  
             // Request body.
-            // data: '{"url": ' + '"' +  + '"}',
-            data: '{"url":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Tom_Cruise_by_Gage_Skidmore.jpg/330px-Tom_Cruise_by_Gage_Skidmore.jpg"}',
+            data: '{"url": ' + '"' + stringurl  + '"}',
+         
         })
  
         .done(function(data) {
@@ -150,7 +150,7 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
             {
                 // echo $blob->getName().": ".$blob->getUrl()."<br />";
                 echo "<img id=".$blob->getUrl()." src=".$blob->getUrl()." height=200 width=300 />";
-                echo "<button onclick='ngisiData()'>Analyze image</button>";
+                echo "<button onclick='processImage('".$blob->getUrl()."')></button>Analyze image</button>";
 
             }
         
