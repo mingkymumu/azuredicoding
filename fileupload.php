@@ -85,7 +85,7 @@ Select image :
         <textarea id="responseTextArea" class="UIInput"
                   style="width:580px; height:400px;"></textarea>
 </div>
-
+</form>
 
 
 
@@ -202,7 +202,7 @@ else
 
 
 ?>
-</form>
+
 </body>
 </html>
 
