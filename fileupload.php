@@ -6,6 +6,10 @@
 </head>
 <body>
 <script type="text/javascript">
+
+    function ngisiData(){
+        $("#responseTextArea").val('Ini cuma sekedar tes');
+    }
     function processImage() {
       
         // **********************************************
@@ -146,7 +150,7 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
             {
                 // echo $blob->getName().": ".$blob->getUrl()."<br />";
                 echo "<img id=".$blob->getUrl()." src=".$blob->getUrl()." height=200 width=300 />";
-                echo "<button onclick='processImage()'>Analyze image</button>";
+                echo "<button onclick='ngisiData()'>Analyze image</button>";
 
             }
         
