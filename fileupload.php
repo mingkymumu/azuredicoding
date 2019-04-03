@@ -91,18 +91,7 @@
             <br>
             <br>
             <input type="submit" value="Upload" name="Submit1"> <br/>
-        </div>
-    </div>
-    <div title="Analyze Image" data-options="closable:true" style="overflow:auto;padding:20px;display:none;">
-        tab2
-    </div>
-   
-</div>
-
-
-
-  
-<?php
+            <?php
 require_once 'vendor/autoload.php';
 require_once "./random_string.php";
 
@@ -220,6 +209,18 @@ else
 
 
 ?>
+        </div>
+    </div>
+    <div title="Analyze Image" data-options="closable:true" style="overflow:auto;padding:20px;display:none;">
+        tab2
+    </div>
+   
+</div>
+
+
+
+  
+
 
 </form>
 
