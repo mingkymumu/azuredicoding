@@ -72,7 +72,6 @@
         });
     };
 </script>
- <form>
  <?php
 require_once 'vendor/autoload.php';
 require_once "./random_string.php";
@@ -163,6 +162,5 @@ $containerName = "blobgambar";
 
 ?>
 
- </form>
 </body>
 </html>
