@@ -37,8 +37,8 @@
         };
  
         // Display the image.
-        var sourceImageUrl = document.getElementById("inputImage").value;
-        document.querySelector("#sourceImage").src = sourceImageUrl;
+      // var sourceImageUrl = document.getElementById("inputImage").value;
+       // document.querySelector("#sourceImage").src = sourceImageUrl;
  
         // Make the REST API call.
         $.ajax({
@@ -54,11 +54,12 @@
             type: "POST",
  
             // Request body.
-            data: '{"url": ' + '"' + sourceImageUrl + '"}',
+            data: '{"url": ' + '"' + id + '"}',
         })
  
         .done(function(data) {
             // Show formatted JSON on webpage.
+            alert(JSON.stringify(data, null, 2));
             $("#responseTextArea").val(JSON.stringify(data, null, 2));
         })
  
