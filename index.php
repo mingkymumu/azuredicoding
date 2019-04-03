@@ -92,7 +92,7 @@
         <div id="tt" class="easyui-tabs" style="width:1023px;height:799px;">
             <div title="Upload File" style="padding:20px;display:none;">
                 <div style="padding:20px">
-                    <form action="fileupload.php" enctype="multipart/form-data" method="post">
+                    <form action="index.php" enctype="multipart/form-data" method="post">
                     Select image :
                     <input type="file" name="file"><br/>
                     <br>
