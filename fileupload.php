@@ -49,7 +49,7 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
 
         // List blobs.
         $listBlobsOptions = new ListBlobsOptions();
-        $listBlobsOptions->setPrefix("HelloWorld");
+        // $listBlobsOptions->setPrefix("HelloWorld");
 
         echo "These are the blobs present in the container: ";
 
