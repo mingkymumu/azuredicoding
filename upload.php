@@ -22,7 +22,7 @@ if(isset($_POST['Submit1']))
     $createContainerOptions->addMetaData("key2", "value2");
 	$containerName = "blockblobs".generateRandomString();
 
-    $filepath = "image/".$_FILES["file"]["name"];
+    $filepath = $_FILES["file"]["name"];
     if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)) 
     {
         $fileToUpload = $filepath;
@@ -31,7 +31,7 @@ if(isset($_POST['Submit1']))
             $blobClient->createContainer($containerName, $createContainerOptions);
     
             // Getting local file so that we can upload it to Azure
-            $myfile = fopen($filepath, "w") or die("Unable to open file!");
+            $myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
             fclose($myfile);
             
             # Upload file as a block blob
