@@ -1,11 +1,83 @@
 
 <html>
+<head>
+    <title>Analyze Sample</title>
+    <script type='text/javascript' src='/js/jquery-3.3.1.min.js'></script>
+</head>
 <body>
+<script type="text/javascript">
+    function processImage(strurl) {
+        // **********************************************
+        // *** Update or verify the following values. ***
+        // **********************************************
+ 
+        // Replace <Subscription Key> with your valid subscription key.
+        var subscriptionKey = "64216a6e8c584678a20b32ea6433dfbd";
+ 
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
+        //
+        // Free trial subscription keys are generated in the "westus" region.
+        // If you use a free trial subscription key, you shouldn't need to change
+        // this region.
+        var uriBase =
+            "https://southeastasia.api.cognitive.microsoft.com/vision/v2.0/analyze";
+ 
+        // Request parameters.
+        var params = {
+            "visualFeatures": "Categories,Description,Color",
+            "details": "",
+            "language": "en",
+        };
+ 
+        // Display the image.
+        var sourceImageUrl = document.getElementById("inputImage").value;
+        document.querySelector("#sourceImage").src = sourceImageUrl;
+ 
+        // Make the REST API call.
+        $.ajax({
+            url: uriBase + "?" + $.param(params),
+ 
+            // Request headers.
+            beforeSend: function(xhrObj){
+                xhrObj.setRequestHeader("Content-Type","application/json");
+                xhrObj.setRequestHeader(
+                    "Ocp-Apim-Subscription-Key", subscriptionKey);
+            },
+ 
+            type: "POST",
+ 
+            // Request body.
+            data: '{"url": ' + '"' + strurl + '"}',
+        })
+ 
+        .done(function(data) {
+            // Show formatted JSON on webpage.
+            $("#responseTextArea").val(JSON.stringify(data, null, 2));
+        })
+ 
+        .fail(function(jqXHR, textStatus, errorThrown) {
+            // Display error message.
+            var errorString = (errorThrown === "") ? "Error. " :
+                errorThrown + " (" + jqXHR.status + "): ";
+            errorString += (jqXHR.responseText === "") ? "" :
+                jQuery.parseJSON(jqXHR.responseText).message;
+            alert(errorString);
+        });
+    };
+</script>
 <form action="fileupload.php" enctype="multipart/form-data" method="post">
 Select image :
 <input type="file" name="file"><br/>
 <input type="submit" value="Upload" name="Submit1"> <br/>
-
+<div id="jsonOutput" style="width:600px; display:table-cell;">
+        Response:
+        <br><br>
+        <textarea id="responseTextArea" class="UIInput"
+                  style="width:580px; height:400px;"></textarea>
+</div>
 
 </form>
 </body>
@@ -71,6 +143,8 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
             {
                 // echo $blob->getName().": ".$blob->getUrl()."<br />";
                 echo "<img src=".$blob->getUrl()." height=200 width=300 />";
+                echo "<button onclick='processImage(.$blob->getUrl().)'>Analyze image</button>";
+
             }
         
             $listBlobsOptions->setContinuationToken($result->getContinuationToken());
