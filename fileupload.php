@@ -15,7 +15,8 @@
         $('#tt').tabs('add',{
          title:'Analyze Image',
          href:'cognitive.html',
-         closable:true,
+         closable:false,
+         selected:false,
        
 });
     });
@@ -218,9 +219,7 @@ else
 ?>
         </div>
     </div>
-    <div title="Analyze Image" data-options="closable:true" style="overflow:auto;padding:20px;display:none;">
-        tab2
-    </div>
+   
    
 </div>
 
