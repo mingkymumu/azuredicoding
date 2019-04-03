@@ -85,11 +85,6 @@ Select image :
         <textarea id="responseTextArea" class="UIInput"
                   style="width:580px; height:400px;"></textarea>
 </div>
-</form>
-
-
-
-
 <?php
 require_once 'vendor/autoload.php';
 require_once "./random_string.php";
@@ -202,6 +197,12 @@ else
 
 
 ?>
+
+</form>
+
+
+
+
 
 </body>
 </html>
