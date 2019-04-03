@@ -6,7 +6,7 @@
 </head>
 <body>
 <script type="text/javascript">
-    function processImage(strurl) {
+    function processImage() {
         // **********************************************
         // *** Update or verify the following values. ***
         // **********************************************
@@ -50,7 +50,8 @@
             type: "POST",
  
             // Request body.
-            data: '{"url": ' + '"' + strurl + '"}',
+            // data: '{"url": ' + '"' +  + '"}',
+            data: '{"url":"https://webappdicoding.blob.core.windows.net/blobgambar/nur.jpg"}',
         })
  
         .done(function(data) {
@@ -142,8 +143,8 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
             foreach ($result->getBlobs() as $blob)
             {
                 // echo $blob->getName().": ".$blob->getUrl()."<br />";
-                echo "<img src=".$blob->getUrl()." height=200 width=300 />";
-                echo "<button onclick='processImage('".$blob->getUrl()."')'>Analyze image</button>";
+                echo "<img id=".$blob->getUrl()." src=".$blob->getUrl()." height=200 width=300 />";
+                echo "<button onclick='processImage()'>Analyze image</button>";
 
             }
         
