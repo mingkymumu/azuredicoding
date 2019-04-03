@@ -40,7 +40,9 @@ $containerName = "blobgambar";
             {
                 // echo $blob->getName().": ".$blob->getUrl()."<br />";
                 echo "<img id=".$no." src=".$blob->getUrl()." height=200 width=300 />";
+                echo "<br>";
                 echo "<button>Analyze image</button>";
+                echo "<br>";
                 echo "<br>";
                 $no++;
 
