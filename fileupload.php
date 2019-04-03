@@ -9,6 +9,7 @@ use MicrosoftAzure\Storage\Blob\Models\ListBlobsOptions;
 use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
 use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
+
 $connectionString = "DefaultEndpointsProtocol=https;AccountName=webappdicoding;AccountKey=mxkB+bJQO4L/+KDpTCOLHE9KHi8H2rk3FHO8a3Ve4KTyAzSTwn12zmRen8INMXhtlL5JpxNdscVh0vsyD68XkA==";
 
 // Create blob client.
@@ -34,7 +35,7 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
         $blobClient->createContainer($containerName, $createContainerOptions);
 
         // Getting local file so that we can upload it to Azure
-        $myfile = fopen($filetoupload, "w") or die("Unable to open file!");
+        $myfile = fopen($filetoupload, "r") or die("Unable to open file!");
         fclose($myfile);
         
         # Upload file as a block blob
