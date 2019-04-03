@@ -6,7 +6,11 @@
 </head>
 <body>
 <script type="text/javascript">
-    function processImage() {
+
+    function test(id){
+        alert(id);
+    }
+    function processImage(id) {
         // **********************************************
         // *** Update or verify the following values. ***
         // **********************************************
@@ -120,7 +124,7 @@ $containerName = "blobgambar";
                 
                 </div>";
                 echo "<br>";
-                echo "<button>Analyze image</button>";
+                echo "<button onclick='test('".$blob->getUrl()."')'>Analyze image</button>";
                 echo "<br>";
                 echo "<br>";
                 $no++;
