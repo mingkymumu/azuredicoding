@@ -131,6 +131,9 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
 
         //Upload blob
         $blobClient->createBlockBlob($containerName, $filetoupload, $content);
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
         echo "Upload File Success";
         // List blobs.
         //$listBlobsOptions = new ListBlobsOptions();
