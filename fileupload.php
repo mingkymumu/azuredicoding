@@ -1,3 +1,6 @@
+
+<html>
+<body>
 <form action="fileupload.php" enctype="multipart/form-data" method="post">
 Select image :
 <input type="file" name="file"><br/>
@@ -5,6 +8,9 @@ Select image :
 
 
 </form>
+</body>
+</html>
+
 
 
 <?php
