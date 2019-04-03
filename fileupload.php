@@ -52,7 +52,7 @@
  
             // Request body.
             // data: '{"url": ' + '"' +  + '"}',
-            data: '{"url":"https://webappdicoding.blob.core.windows.net/blobgambar/nur.jpg"}',
+            data: '{"url":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/Tom_Cruise_by_Gage_Skidmore.jpg/330px-Tom_Cruise_by_Gage_Skidmore.jpg"}',
         })
  
         .done(function(data) {
