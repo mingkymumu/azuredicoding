@@ -23,7 +23,8 @@ if(isset($_POST['Submit1']))
 	$containerName = "blockblobs".generateRandomString();
 
     $filepath = "image/".$_FILES["file"]["name"];
-    if(if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)) ){
+    if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)) 
+    {
         $fileToUpload = $filepath;
         try {
             // Create container.
