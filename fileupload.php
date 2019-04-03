@@ -82,11 +82,13 @@
 </script>
 <div id="cc" class="easyui-layout" style="width:1024px;height:800px;">
     <div data-options="region:'north',title:'North Title',split:true" style="height:800px;">
+    <div style="padding:50px">
     <form action="fileupload.php" enctype="multipart/form-data" method="post">
     Select image :
     <input type="file" name="file"><br/>
     <input type="submit" value="Upload" name="Submit1"> <br/>
-    <?php
+    </div>
+<?php
 require_once 'vendor/autoload.php';
 require_once "./random_string.php";
 
@@ -183,7 +185,10 @@ else
 
     try{
         // Delete container.
-        echo "Deleting Container".PHP_EOL;
+        echo "<br>";
+        echo "<br>";
+        echo "<br>";
+        echo "No File Selected".PHP_EOL;
         echo $_GET["containerName"].PHP_EOL;
         echo "<br />";
         $blobClient->deleteContainer($_GET["containerName"]);
