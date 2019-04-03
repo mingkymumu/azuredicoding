@@ -46,10 +46,7 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
         $myfile = fopen($filetoupload, "r") or die("Unable to open file!");
         fclose($myfile);
         
-        # Upload file as a block blob
-        echo "Uploading BlockBlob: ".PHP_EOL;
-        echo $filepath;
-        echo "<br />";
+      
         
         $content = fopen($filetoupload, "r");
 
@@ -60,7 +57,7 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
         $listBlobsOptions = new ListBlobsOptions();
         // $listBlobsOptions->setPrefix("HelloWorld");
 
-        echo "These are the blobs present in the container: ";
+        echo "These are the blobs present in the container: <br/>";
 
         do{
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
