@@ -89,7 +89,7 @@
 </script>
 <div id="cc" class="easyui-layout" style="width:1024px;height:800px;">
     <div data-options="region:'north',title:'North Title',split:true" style="height:800px;">
-    <div id="tt" class="easyui-tabs" style="width:1024px;height:800px;">
+    <div id="tt" class="easyui-tabs" style="width:1023px;height:799px;">
     <div title="Upload File" style="padding:20px;display:none;">
         <div style="padding:20px">
          <form action="fileupload.php" enctype="multipart/form-data" method="post">
