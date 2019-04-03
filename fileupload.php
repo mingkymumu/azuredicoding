@@ -18,7 +18,7 @@ if(isset($_POST['Submit1']))
 {
 $createContainerOptions = new CreateContainerOptions();
 $filetoupload = $_FILES["file"]["name"];   
-$filepath = "image/" . $_FILES["file"]["name"];
+
 $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 
 // Set container metadata.
@@ -27,14 +27,14 @@ $createContainerOptions->addMetaData("key2", "value2");
 
 $containerName = "blockblobsgambar".generateRandomString();
 
-if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)) 
+if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload)) 
 {
     try {
         // Create container.
         $blobClient->createContainer($containerName, $createContainerOptions);
 
         // Getting local file so that we can upload it to Azure
-        $myfile = fopen($filepath, "w") or die("Unable to open file!");
+        $myfile = fopen($filetoupload, "w") or die("Unable to open file!");
         fclose($myfile);
         
         # Upload file as a block blob
@@ -42,10 +42,10 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath))
         echo $filepath;
         echo "<br />";
         
-        $content = fopen($filepath, "r");
+        $content = fopen($filetoupload, "r");
 
         //Upload blob
-        $blobClient->createBlockBlob($containerName, $filepath, $content);
+        $blobClient->createBlockBlob($containerName, $filetoupload, $content);
 
         // List blobs.
         $listBlobsOptions = new ListBlobsOptions();
