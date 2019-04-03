@@ -80,7 +80,7 @@
         });
     };
 </script>
-<div id="cc" class="easyui-layout" style="width:600px;height:400px;">
+<div id="cc" class="easyui-layout" style="width:1024px;height:800px;">
     <div data-options="region:'north',title:'North Title',split:true" style="height:100px;">
     <form action="fileupload.php" enctype="multipart/form-data" method="post">
     Select image :
