@@ -123,7 +123,7 @@ $containerName = "blobgambar";
                 
                 </div>";
                 echo "<br>";
-                echo "<button onclick='test('".$blob->getUrl()."')'>Analyze image</button>";
+                echo "<button onclick='alert('".$no."')'>Analyze image</button>";
                 echo "<br>";
                 echo "<br>";
                 $no++;
