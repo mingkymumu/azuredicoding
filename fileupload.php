@@ -86,9 +86,7 @@ Select image :
                   style="width:580px; height:400px;"></textarea>
 </div>
 
-</form>
-</body>
-</html>
+
 
 
 
@@ -204,5 +202,7 @@ else
 
 
 ?>
-
+</form>
+</body>
+</html>
 
