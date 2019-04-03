@@ -34,12 +34,14 @@ $containerName = "blobgambar";
       
 
         do{
+            $no =1;
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
             foreach ($result->getBlobs() as $blob)
             {
                 // echo $blob->getName().": ".$blob->getUrl()."<br />";
-                echo "<img id=".$blob->getUrl()." src=".$blob->getUrl()." height=200 width=300 />";
-                echo "<button onclick='ngisiData()'>Analyze image</button>";
+                echo "<img id=".$no." src=".$blob->getUrl()." height=200 width=300 /><br>";
+                echo "<button>Analyze image</button>";
+                $no++;
 
             }
         
