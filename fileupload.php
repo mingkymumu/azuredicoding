@@ -85,6 +85,15 @@ Select image :
         <textarea id="responseTextArea" class="UIInput"
                   style="width:580px; height:400px;"></textarea>
 </div>
+
+</form>
+
+
+
+
+
+</body>
+</html>
 <?php
 require_once 'vendor/autoload.php';
 require_once "./random_string.php";
@@ -130,25 +139,25 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
 
         //Upload blob
         $blobClient->createBlockBlob($containerName, $filetoupload, $content);
-
+        echo "Upload File Success";
         // List blobs.
-        $listBlobsOptions = new ListBlobsOptions();
+        //$listBlobsOptions = new ListBlobsOptions();
         // $listBlobsOptions->setPrefix("HelloWorld");
 
       
 
-        do{
-            $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-            foreach ($result->getBlobs() as $blob)
-            {
-                // echo $blob->getName().": ".$blob->getUrl()."<br />";
-                echo "<img id=".$blob->getUrl()." src=".$blob->getUrl()." height=200 width=300 />";
-                echo "<button onclick='ngisiData()'>Analyze image</button>";
+        // do{
+        //     $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+        //     foreach ($result->getBlobs() as $blob)
+        //     {
+        //         // echo $blob->getName().": ".$blob->getUrl()."<br />";
+        //         echo "<img id=".$blob->getUrl()." src=".$blob->getUrl()." height=200 width=300 />";
+        //         echo "<button onclick='ngisiData()'>Analyze image</button>";
 
-            }
+        //     }
         
-            $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-        } while($result->getContinuationToken());
+        //     $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+        // } while($result->getContinuationToken());
         // echo "<br />";
 
         // Get blob.
@@ -197,13 +206,4 @@ else
 
 
 ?>
-
-</form>
-
-
-
-
-
-</body>
-</html>
 
