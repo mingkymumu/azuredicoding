@@ -1,16 +1,3 @@
-<html>
-<head>
-<title>PHP File Upload example</title>
-</head>
-<body>
- 
-<form action="upload.php" enctype="multipart/form-data" method="post">
-Select image :
-<input type="file" name="file"><br/>
-<input type="submit" value="Upload" name="Submit1"> <br/>
- 
- 
-</form>
 <?php
 require_once 'vendor/autoload.php';
 require_once "./random_string.php";
@@ -58,26 +45,21 @@ if(isset($_POST['Submit1']))
         $listBlobsOptions = new ListBlobsOptions();
         $listBlobsOptions->setPrefix("HelloWorld");
 
-   //     echo "These are the blobs present in the container: ";
 
         do{
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
             foreach ($result->getBlobs() as $blob)
             {
-               // echo $blob->getName().": ".$blob->getUrl()."<br />";
 				echo "<img src=".$blob->getUrl()." height=200 width=300 />";
             }
         
             $listBlobsOptions->setContinuationToken($result->getContinuationToken());
         } while($result->getContinuationToken());
-      // echo "<br />";
 
         // Get blob.
-        //echo "This is the content of the blob uploaded: ";
         $blob = $blobClient->getBlob($containerName, $fileToUpload);
         fpassthru($blob->getContentStream());
 		
-        //echo "<br />";
     }
     catch(ServiceException $e){
         // Handle exception based on error codes and messages.
@@ -85,7 +67,7 @@ if(isset($_POST['Submit1']))
         // http://msdn.microsoft.com/library/azure/dd179439.aspx
         $code = $e->getCode();
         $error_message = $e->getMessage();
-        echo $code.": ".$error_message."<br />";
+        echo $code.": ".$error_message;
     }
     catch(InvalidArgumentTypeException $e){
         // Handle exception based on error codes and messages.
@@ -114,8 +96,10 @@ else
         $error_message = $e->getMessage();
         echo $code.": ".$error_message."<br />";
     }
-
+}
 ?>
- 
-</body>
-</html>
+<form action="upload.php" enctype="multipart/form-data" method="post">
+Select image :
+<input type="file" name="file"><br/>
+<input type="submit" value="Upload" name="Submit1"> <br/>
+ </form>
