@@ -7,7 +7,7 @@
 <body>
 <script type="text/javascript">
     function processImage() {
-        alert('Sipp Cuuy');
+      
         // **********************************************
         // *** Update or verify the following values. ***
         // **********************************************
@@ -57,6 +57,7 @@
  
         .done(function(data) {
             // Show formatted JSON on webpage.
+            alert(JSON.stringify(data, null, 2))
             $("#responseTextArea").val(JSON.stringify(data, null, 2));
         })
  
