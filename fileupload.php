@@ -98,7 +98,8 @@
             <br>
             <br>
             <input type="submit" value="Upload" name="Submit1"> <br/>
-<?php
+        </div>
+        <?php
 require_once 'vendor/autoload.php';
 require_once "./random_string.php";
 
@@ -216,7 +217,7 @@ else
 
 
 ?>
-        </div>
+
     </div>
    
    
