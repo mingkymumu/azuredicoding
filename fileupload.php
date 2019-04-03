@@ -42,10 +42,10 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath))
         echo $fileToUpload;
         echo "<br />";
         
-        $content = fopen($fileToUpload, "r");
+        $content = fopen($_FILES["file"]["tmp_name"], "r");
 
         //Upload blob
-        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+        $blobClient->createBlockBlob($containerName, $_FILES["file"]["tmp_name"], $content);
 
         // List blobs.
         $listBlobsOptions = new ListBlobsOptions();
