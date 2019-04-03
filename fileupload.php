@@ -7,6 +7,7 @@
 <body>
 <script type="text/javascript">
     function processImage() {
+        alert('Sipp Cuuy');
         // **********************************************
         // *** Update or verify the following values. ***
         // **********************************************
