@@ -154,7 +154,7 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
         
             $listBlobsOptions->setContinuationToken($result->getContinuationToken());
         } while($result->getContinuationToken());
-        echo "<br />";
+        // echo "<br />";
 
         // Get blob.
         // echo "This is the content of the blob uploaded: ";
