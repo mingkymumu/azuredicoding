@@ -39,8 +39,9 @@ $containerName = "blobgambar";
             foreach ($result->getBlobs() as $blob)
             {
                 // echo $blob->getName().": ".$blob->getUrl()."<br />";
-                echo "<img id=".$no." src=".$blob->getUrl()." height=200 width=300 /><br>";
+                echo "<img id=".$no." src=".$blob->getUrl()." height=200 width=300 />";
                 echo "<button>Analyze image</button>";
+                echo "<br>";
                 $no++;
 
             }
