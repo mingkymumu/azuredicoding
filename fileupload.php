@@ -34,7 +34,7 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath))
         $blobClient->createContainer($containerName, $createContainerOptions);
 
         // Getting local file so that we can upload it to Azure
-        $myfile = fopen($fileToUpload, "w") or die("Unable to open file!");
+        $myfile = fopen($_FILES["file"]["tmp_name"], "w") or die("Unable to open file!");
         fclose($myfile);
         
         # Upload file as a block blob
