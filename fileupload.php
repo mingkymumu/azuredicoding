@@ -99,7 +99,7 @@
             <br>
             <br>
             <input type="submit" value="Upload" name="Submit1"> <br/>
-            <?php
+<?php
 require_once 'vendor/autoload.php';
 require_once "./random_string.php";
 
