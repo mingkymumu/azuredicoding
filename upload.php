@@ -22,7 +22,7 @@ if(isset($_POST['Submit1']))
     $createContainerOptions->addMetaData("key2", "value2");
 	$containerName = "blockblobs".generateRandomString();
 
-    $filepath = $_FILES["file"]["name"];
+    $filepath ="image/" $_FILES["file"]["name"];
     if(move_uploaded_file($_FILES["file"]["tmp_name"], $filepath)) 
     {
         $fileToUpload = $filepath;
@@ -49,15 +49,15 @@ if(isset($_POST['Submit1']))
             $listBlobsOptions->setPrefix("HelloWorld");
     
     
-            // do{
-            //     $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-            //     foreach ($result->getBlobs() as $blob)
-            //     {
-            //         echo "<img src=".$blob->getUrl()." height=200 width=300 />";
-            //     }
+            do{
+                $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+                foreach ($result->getBlobs() as $blob)
+                {
+                    echo "<img src=".$blob->getUrl()." height=200 width=300 />";
+                }
             
-            //     $listBlobsOptions->setContinuationToken($result->getContinuationToken());
-            // } while($result->getContinuationToken());
+                $listBlobsOptions->setContinuationToken($result->getContinuationToken());
+            } while($result->getContinuationToken());
     
             // Get blob.
             $blob = $blobClient->getBlob($containerName, $fileToUpload);
