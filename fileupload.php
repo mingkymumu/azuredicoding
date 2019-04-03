@@ -26,13 +26,13 @@ $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 $createContainerOptions->addMetaData("key1", "value1");
 $createContainerOptions->addMetaData("key2", "value2");
 
-$containerName = "blockblobsgambar".generateRandomString();
+$containerName = "blobgambar";
 
 if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload)) 
 {
     try {
         // Create container.
-        $blobClient->createContainer($containerName, $createContainerOptions);
+        // $blobClient->createContainer($containerName, $createContainerOptions);
 
         // Getting local file so that we can upload it to Azure
         $myfile = fopen($filetoupload, "r") or die("Unable to open file!");
