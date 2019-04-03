@@ -81,22 +81,18 @@
     };
 </script>
 <div id="cc" class="easyui-layout" style="width:600px;height:400px;">
-    <div data-options="region:'north',title:'North Title',split:true" style="height:100px;"></div>
-    <div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;"></div>
-</div>
-
-<form action="fileupload.php" enctype="multipart/form-data" method="post">
-Select image :
-<input type="file" name="file"><br/>
-<input type="submit" value="Upload" name="Submit1"> <br/>
-<div id="jsonOutput" style="width:600px; display:table-cell;">
-        Response:
-        <br><br>
-        <textarea id="responseTextArea" class="UIInput"
-                  style="width:580px; height:400px;"></textarea>
-</div>
-
+    <div data-options="region:'north',title:'North Title',split:true" style="height:100px;">
+    <form action="fileupload.php" enctype="multipart/form-data" method="post">
+    Select image :
+    <input type="file" name="file"><br/>
+    <input type="submit" value="Upload" name="Submit1"> <br/>
 </form>
+
+
+</div>
+    
+</div>
+
 
 
 
