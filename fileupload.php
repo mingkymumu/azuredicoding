@@ -1,3 +1,11 @@
+<form action="fileupload.php" enctype="multipart/form-data" method="post">
+Select image :
+<input type="file" name="file"><br/>
+<input type="submit" value="Upload" name="Submit1"> <br/>
+
+
+</form>
+
 
 <?php
 require_once 'vendor/autoload.php';
@@ -112,13 +120,5 @@ else
 
 
 ?>
-
-<form action="fileupload.php" enctype="multipart/form-data" method="post">
-Select image :
-<input type="file" name="file"><br/>
-<input type="submit" value="Upload" name="Submit1"> <br/>
-
-
-</form>
 
 
