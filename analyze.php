@@ -58,9 +58,13 @@
         })
  
         .done(function(data) {
+            var str ='';
             // Show formatted JSON on webpage.
             alert(JSON.stringify(data, null, 2));
-            $("#responseTextArea").val(JSON.stringify(data, null, 2));
+            if(data!=null){
+                str = data.description.captions[0].text;
+            }
+            $("#responseTextArea").val(str);
         })
  
         .fail(function(jqXHR, textStatus, errorThrown) {
