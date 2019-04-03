@@ -111,13 +111,13 @@ $containerName = "blobgambar";
             {
                 // echo $blob->getName().": ".$blob->getUrl()."<br />";
                 echo "<img id=img".$no." src=".$blob->getUrl()." height=300 width=500 />";
-                echo "<div id='wrapper".$no."' style='width:500px; display:table;'>
-                      <div id='jsonOutput".$no."' style='width:400px; display:table-cell;'>
+                echo "
+                      <div id='jsonOutput".$no."' style='width:400px;'>
                     Response:
                     <br>
                     <textarea id='responseTextArea".$no."' class='UIInput'
-                              style='width:400px; height:300px;'></textarea>
-                </div>
+                              style='width:300px; height:300px;'></textarea>
+                
                 </div>";
                 echo "<br>";
                 echo "<button>Analyze image</button>";
