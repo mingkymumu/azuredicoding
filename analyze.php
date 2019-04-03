@@ -161,7 +161,7 @@ $containerName = "blobgambar";
 
 ?>
  <div id='jsonOutput' style='width:400px;'>
-                    Response:
+                    Description :
                     <br>
                     <textarea id='responseTextArea' class='UIInput'
                               style='width:300px; height:300px;'></textarea>
