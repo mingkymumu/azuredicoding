@@ -115,14 +115,8 @@ $containerName = "blobgambar";
             {
                 // echo $blob->getName().": ".$blob->getUrl()."<br />";
                 echo "<img id=img".$no." src=".$blob->getUrl()." height=300 width=500 />";
-                echo "
-                      <div id='jsonOutput".$no."' style='width:400px;'>
-                    Response:
-                    <br>
-                    <textarea id='responseTextArea".$no."' class='UIInput'
-                              style='width:300px; height:300px;'></textarea>
-                
-                </div>";
+               
+                     
                 echo "<br>";
                 echo "<button onclick=processImage('".$blob->getUrl()."')>Analyze image</button>";
                 echo "<br>";
@@ -162,6 +156,12 @@ $containerName = "blobgambar";
 
 
 ?>
-
+ <div id='jsonOutput' style='width:400px;'>
+                    Response:
+                    <br>
+                    <textarea id='responseTextArea' class='UIInput'
+                              style='width:300px; height:300px;'></textarea>
+                
+                </div>";
 </body>
 </html>
