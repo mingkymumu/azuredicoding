@@ -14,7 +14,7 @@
     $(document).ready(function(){
         $('#tt').tabs('add',{
          title:'Analyze Image',
-         href:'cognitive.html',
+         href:'analyze.php',
          closable:false,
          selected:false,
        
