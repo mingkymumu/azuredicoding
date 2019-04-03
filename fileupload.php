@@ -15,7 +15,7 @@
          title:'Analyze Image',
          href:'analyze.php',
          closable:false,
-         selected:false,
+         selected:true,
        
 });
     });
