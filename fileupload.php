@@ -11,7 +11,19 @@
 </head>
 <body>
 <script type="text/javascript">
-
+    $(document).ready(function(){
+        $('#tt').tabs('add',{
+         title:'New Tab',
+         content:'Tab Body',
+         closable:true,
+        tools:[{
+        iconCls:'icon-mini-refresh',
+        handler:function(){
+            alert('refresh');
+        }
+    }]
+});
+    });
     function ngisiData(){
         $("#responseTextArea").val('Ini cuma sekedar tes');
     }
