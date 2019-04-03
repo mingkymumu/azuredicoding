@@ -13,8 +13,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('#tt').tabs('add',{
-         title:'New Tab',
-         content:'Tab Body',
+         title:'Analyze Image',
+         href:'cognitive.html',
          closable:true,
         tools:[{
         iconCls:'icon-mini-refresh',
