@@ -86,21 +86,7 @@
     Select image :
     <input type="file" name="file"><br/>
     <input type="submit" value="Upload" name="Submit1"> <br/>
-</form>
-
-
-</div>
-    
-</div>
-
-
-
-
-
-
-</body>
-</html>
-<?php
+    <?php
 require_once 'vendor/autoload.php';
 require_once "./random_string.php";
 
@@ -212,4 +198,19 @@ else
 
 
 ?>
+
+</form>
+
+
+</div>
+    
+</div>
+
+
+
+
+
+
+</body>
+</html>
 
