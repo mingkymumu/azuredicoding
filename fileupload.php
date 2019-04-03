@@ -3,6 +3,11 @@
 <head>
     <title>Analyze Sample</title>
     <script type='text/javascript' src='/js/jquery-3.3.1.min.js'></script>
+    <link rel="stylesheet" type="text/css" href="/assets/themes/metro-blue/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/assets/themes/icon.css">
+    <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/assets/js/datagrid-export.js"></script>
 </head>
 <body>
 <script type="text/javascript">
@@ -75,6 +80,11 @@
         });
     };
 </script>
+<div id="cc" class="easyui-layout" style="width:600px;height:400px;">
+    <div data-options="region:'north',title:'North Title',split:true" style="height:100px;"></div>
+    <div data-options="region:'center',title:'center title'" style="padding:5px;background:#eee;"></div>
+</div>
+
 <form action="fileupload.php" enctype="multipart/form-data" method="post">
 Select image :
 <input type="file" name="file"><br/>
