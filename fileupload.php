@@ -148,7 +148,7 @@ if(move_uploaded_file($_FILES["file"]["tmp_name"], $filetoupload))
         echo "<br>";
         echo "<br>";
         echo "<br>";
-        echo "<div style='padding:20px'>Upload File Success</div>";
+        echo "Upload File Success";
         // List blobs.
         //$listBlobsOptions = new ListBlobsOptions();
         // $listBlobsOptions->setPrefix("HelloWorld");
