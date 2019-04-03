@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Analyze Sample</title>
-    <script type='text/javascript' src='/js/jquery-3.3.1.min.js'></script>
     <link rel="stylesheet" type="text/css" href="/assets/themes/metro-blue/easyui.css">
     <link rel="stylesheet" type="text/css" href="/assets/themes/icon.css">
     <script type="text/javascript" src="/assets/js/jquery.min.js"></script>
